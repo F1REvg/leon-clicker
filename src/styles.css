@@ -10,7 +10,7 @@ body {
     background-color: #1c1f24;
 }
 
-.header {
+.header, .under_header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,12 +22,18 @@ body {
     margin-right: 14px;
 }
 
-.score {
+.score, .months {
     color: #fff;
     text-align: center;
     font-size: 36px;
     font-weight: 800;
     user-select: none;
+}
+
+.under_header img{
+    width: 100px;
+    height: 60px;
+    margin-right: 14px;
 }
 
 .circle {
@@ -75,8 +81,8 @@ body {
 button {
     /* Круглый блок */
     border-radius: 50%;
-    width: 40px; /* Размер кнопки */
-    height: 40px;
+    width: 50px; /* Размер кнопки */
+    height: 50px;
     background-color: #fbff00; /* Цвет фона кнопки */
     color: rgb(91, 8, 247); /* Цвет текста */
     font-size: 20px; /* Размер шрифта */
@@ -91,7 +97,7 @@ button {
   
   button:hover {
     background-color: #d90000; /* Цвет фона при наведении */
-    transform: scale(1.1); /* Увеличение размера кнопки при наведении */
+    transform: scale(1.5); /* Увеличение размера кнопки при наведении */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Добавление тени при наведении */
     outline: none; /* Убираем рамку вокруг кнопки */
   }

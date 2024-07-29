@@ -1,5 +1,7 @@
 const $circle = document.querySelector('#circle')
 const $score = document.querySelector('#score')
+const $months = document.querySelector('#months')
+
 function start() {
     setScore(getScore())
     setImage()
@@ -18,39 +20,80 @@ function addOne() {
     setScore(getScore() + 1)
     setImage()
 }
+
+function setMonths(months) {
+    localStorage.setItem('months', months)
+    $months.textContent = months
+}
+
+function getMonths() {
+    return Number(localStorage.getItem('months')) ?? 0
+}
+
+function addOneMonth() {
+    setMonths(getMonths() + 1)
+}
 // Добавить путь до картинки вторым аргументом в setAttribute
 function setImage() {
-    if ((getScore() >= 0) && (getScore() < 31)) {
-        $circle.setAttribute('src', 'assets/0.png')
-    } else if ((getScore() >= 31) && (getScore() < 61)) {
+
+    switch(getScore()) {
+        case 0: 
+         $circle.setAttribute('src', 'assets/0.png')
+          break
+      
+        case 31:  
         $circle.setAttribute('src', 'assets/1.png')
-    } else if ((getScore() >= 61) && (getScore() < 91)) {
+        addOneMonth();
+          break
+        
+        case 61:  
         $circle.setAttribute('src', 'assets/2.png')
-    } else if ((getScore() >= 91) && (getScore() < 121)) {
+        addOneMonth();
+          break
+
+        case 91:  
         $circle.setAttribute('src', 'assets/3.png')
-    } else if ((getScore() >= 121) && (getScore() < 151)) {
+        addOneMonth();
+          break
+
+        case 121:  
         $circle.setAttribute('src', 'assets/4.png')
-    } else if ((getScore() >= 151) && (getScore() < 181)) {
+        addOneMonth();
+          break
+
+        case 151:  
         $circle.setAttribute('src', 'assets/5.png')
-    } else if ((getScore() >= 181) && (getScore() < 211)) {
+        addOneMonth();
+          break
+
+        case 181:  
         $circle.setAttribute('src', 'assets/6.png')
-    } else if ((getScore() >= 211) && (getScore() < 241)) {
+        addOneMonth();
+          break
+
+        case 211:  
         $circle.setAttribute('src', 'assets/7.png')
-    } else if ((getScore() >= 241) && (getScore() < 271)) {
+        addOneMonth();
+          break
+
+        case 241:  
         $circle.setAttribute('src', 'assets/8.png')
-    } 
+        addOneMonth();
+          break
+      }
 }
 
 // Функция для сброса счётчика
 function resetScore() {
     localStorage.clear()
     $score.textContent = 0;
+    $months.textContent = 0;
     $circle.setAttribute('src', 'assets/0.png')
 }
 
 // Создаём кнопку сброса счётчика
 const resetButton = document.createElement('button');
-resetButton.textContent = 'R';
+resetButton.textContent = "🔁";
 resetButton.addEventListener('click', resetScore);
 
 // Добавляем кнопку к документу
